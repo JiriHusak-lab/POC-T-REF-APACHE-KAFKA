@@ -66,6 +66,8 @@ items:
     kind: DeploymentConfig
     metadata:
       name: ${NAME}
+      labels:
+        app: apache-kafka3
     spec:
       replicas: 1
       selector:
