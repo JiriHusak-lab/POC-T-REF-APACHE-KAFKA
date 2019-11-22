@@ -23,42 +23,34 @@ items:
   objects:
   ##
   - apiVersion: v1
-  kind: PersistentVolumeClaim
-  metadata:
-    annotations:
-      openshift.io/generated-by: OpenShiftNewApp
-  ##    ibm.io/provisioning-status: complete
-  ##    pv.kubernetes.io/bind-completed: "yes"
-  ##    pv.kubernetes.io/bound-by-controller: "yes"
-  ##    volume.beta.kubernetes.io/storage-provisioner: ibm.io/ibmc-file
-    creationTimestamp: null
-  ##  finalizers:
-  ##  - kubernetes.io/pvc-protection
-    labels:
-      app: apache-kafka3
-  ##    region: us-east
-  ##    zone: wdc04
-    name: apache-kafka3
-  ##  selfLink: /api/v1/namespaces/ibm-demo-app/persistentvolumeclaims/apache-kafka-storage
+    kind: PersistentVolumeClaim
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+  ##    finalizers:
+  ##    - kubernetes.io/pvc-protection
+      labels:
+        app: apache-kafka3
+  ##      region: us-east
+  ##      zone: wdc04
+      name: apache-kafka3
+  ##    selfLink: /api/v1/namespaces/ibm-demo-app/persistentvolumeclaims/apache-kafka-storage
   ##
   ##
   ##
-  spec:
-    accessModes:
-    - ReadWriteMany
-    resources:
-      requests:
-        storage: 500M
-  status:
-    phase: Pending
-  #  storageClassName: default
-  #  volumeName: pv-apache-kafka
+    spec:
+      accessModes:
+      - ReadWriteMany
+      resources:
+        requests:
+          storage: 500M
+    status:
+      phase: Pending
+  #    storageClassName: default
+  #    volumeName: pv-apache-kafka
   
-  
-  
-  
-  
-  
+    
   
   - apiVersion: v1
     kind: DeploymentConfig
