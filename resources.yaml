@@ -120,6 +120,8 @@ items:
   - apiVersion: v1
     kind: Service
     metadata:
+      labels:
+        app: apache-kafka3
       name: ${NAME}
     spec:
       ports:
