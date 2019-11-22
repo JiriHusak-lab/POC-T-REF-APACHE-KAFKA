@@ -47,9 +47,8 @@ items:
     resources:
       requests:
         storage: 500M
-#    storageClassName: default
+    storageClassName: default
     volumeName: pv-apache-kafka
-# 
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
