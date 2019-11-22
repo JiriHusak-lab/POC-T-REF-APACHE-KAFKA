@@ -67,10 +67,10 @@ items:
           volumes:
           - name: kafka-logs
             persistentVolumeClaim:
-               claimName: apache-kafka-storage
+              claimName: apache-kafka-storage
           - name: zookeeper
             persistentVolumeClaim:
-               claimName: zookeeper-storage
+              claimName: zookeeper-storage
   - apiVersion: v1
     kind: Service
     metadata:
