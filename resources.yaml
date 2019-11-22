@@ -66,11 +66,9 @@ items:
             - containerPort: 2181
           volumes:
           - name: kafka-logs
-            persistentVolumeClaim:
-              claimName: apache-kafka-storage
+            emptyDir: {}
           - name: zookeeper
-            persistentVolumeClaim:
-              claimName: zookeeper-storage
+            emptyDir: {}
   - apiVersion: v1
     kind: Service
     metadata:
