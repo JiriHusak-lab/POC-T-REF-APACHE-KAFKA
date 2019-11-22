@@ -39,8 +39,8 @@ items:
           storage: 500M
     status:
       phase: Pending
-      storageClassName: default
-      volumeName: pv-apache-kafka3
+  #    storageClassName: default
+  #    volumeName: pv-apache-kafka3
   
   - apiVersion: v1
     kind: PersistentVolumeClaim
@@ -59,8 +59,8 @@ items:
           storage: 500M
     status:
       phase: Pending
-      storageClassName: default
-      volumeName: pv-apache-zookeeper
+ #     storageClassName: default
+ #     volumeName: pv-apache-zookeeper
   
   - apiVersion: v1
     kind: DeploymentConfig
