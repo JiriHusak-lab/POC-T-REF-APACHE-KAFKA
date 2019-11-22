@@ -60,7 +60,7 @@ items:
     status:
       phase: Pending
       storageClassName: default
-  #    volumeName: pv-apache-zookeeper
+      volumeName: pv-apache-zookeeper
   
   - apiVersion: v1
     kind: DeploymentConfig
