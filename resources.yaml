@@ -21,24 +21,16 @@ items:
     required: true
     value: rondinif/openshift-kafka
   objects:
-  ##
+  #
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
       annotations:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
-  ##    finalizers:
-  ##    - kubernetes.io/pvc-protection
       labels:
         app: apache-kafka3
-  ##      region: us-east
-  ##      zone: wdc04
       name: apache-kafka3
-  ##    selfLink: /api/v1/namespaces/ibm-demo-app/persistentvolumeclaims/apache-kafka-storage
-  ##
-  ##
-  ##
     spec:
       accessModes:
       - ReadWriteMany
@@ -48,9 +40,27 @@ items:
     status:
       phase: Pending
   #    storageClassName: default
-  #    volumeName: pv-apache-kafka
+  #    volumeName: pv-apache-kafka3
   
-    
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: apache-kafka3
+      name: apache-zookeeper
+    spec:
+      accessModes:
+      - ReadWriteMany
+      resources:
+        requests:
+          storage: 500M
+    status:
+      phase: Pending
+  #    storageClassName: default
+  #    volumeName: pv-apache-zookeeper
   
   - apiVersion: v1
     kind: DeploymentConfig
