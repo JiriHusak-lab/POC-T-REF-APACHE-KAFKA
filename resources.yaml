@@ -7,7 +7,7 @@ items:
 - apiVersion: v1
   kind: Template
   metadata:
-    name: apache-kafka
+    name: apache-kafka3
     annotations:
       description: 1-pod Apache Kafka
       tags: messaging,streaming,kafka
@@ -15,7 +15,7 @@ items:
   - name: NAME
     description: Name prefix for each object created
     required: true
-    value: apache-kafka
+    value: apache-kafka3
   - name: IMAGE
     description: Image with Apache Kafka and Apache ZooKeeper
     required: true
@@ -36,7 +36,7 @@ items:
         spec:
           hostname: ${NAME}
           containers:
-          - name: apache-kafka
+          - name: apache-kafka3
             image: ${IMAGE}
             command:
             - bin/kafka-server-start.sh
