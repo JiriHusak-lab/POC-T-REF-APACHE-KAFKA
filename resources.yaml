@@ -21,6 +21,32 @@ items:
     required: true
     value: rondinif/openshift-kafka
   objects:
+  #
+  - apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+  #  annotations:
+  #    ibm.io/provisioning-status: complete
+  #    pv.kubernetes.io/bind-completed: "yes"
+  #    pv.kubernetes.io/bound-by-controller: "yes"
+  #    volume.beta.kubernetes.io/storage-provisioner: ibm.io/ibmc-file
+  #  creationTimestamp: null
+  #  finalizers:
+  #  - kubernetes.io/pvc-protection
+  #  labels:
+  #    region: us-east
+  #    zone: wdc04
+    name: apache-kafka-storage
+  #  selfLink: /api/v1/namespaces/ibm-demo-app/persistentvolumeclaims/apache-kafka-storage
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 500M
+    storageClassName: default
+    volumeName: pvc-d22f0f25-0d24-11ea-bd14-3e3812136e5d
+ # 
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
