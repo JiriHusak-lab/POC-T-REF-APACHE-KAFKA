@@ -38,6 +38,9 @@ items:
   #    zone: wdc04
     name: apache-kafka-storage
   #  selfLink: /api/v1/namespaces/ibm-demo-app/persistentvolumeclaims/apache-kafka-storage
+  #
+  #
+  #
   spec:
     accessModes:
     - ReadWriteMany
@@ -45,7 +48,7 @@ items:
       requests:
         storage: 500M
 #    storageClassName: default
-#    volumeName: pv-apache-kafka
+    volumeName: pv-apache-kafka
 # 
   - apiVersion: v1
     kind: DeploymentConfig
