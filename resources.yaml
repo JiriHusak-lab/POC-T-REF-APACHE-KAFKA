@@ -9,6 +9,8 @@ items:
     annotations:
       description: 1-pod Apache Kafka
       tags: messaging,streaming,kafka
+    labels:
+      app: apache-kafka3
   parameters:
   - name: NAME
     description: Name prefix for each object created
@@ -20,33 +22,44 @@ items:
     value: rondinif/openshift-kafka
   objects:
   ##
-  #- apiVersion: v1
-  #kind: PersistentVolumeClaim
-  #metadata:
-  ##  annotations:
+  - apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
   ##    ibm.io/provisioning-status: complete
   ##    pv.kubernetes.io/bind-completed: "yes"
   ##    pv.kubernetes.io/bound-by-controller: "yes"
   ##    volume.beta.kubernetes.io/storage-provisioner: ibm.io/ibmc-file
-  ##  creationTimestamp: null
+    creationTimestamp: null
   ##  finalizers:
   ##  - kubernetes.io/pvc-protection
-  ##  labels:
+    labels:
+      app: apache-kafka3
   ##    region: us-east
   ##    zone: wdc04
-  #  name: apache-kafka-storage
+    name: apache-kafka3
   ##  selfLink: /api/v1/namespaces/ibm-demo-app/persistentvolumeclaims/apache-kafka-storage
   ##
   ##
   ##
-  #spec:
-  #  accessModes:
-  #  - ReadWriteMany
-  #  resources:
-  #    requests:
-  #      storage: 500M
+  spec:
+    accessModes:
+    - ReadWriteMany
+    resources:
+      requests:
+        storage: 500M
+  status:
+    phase: Pending
   #  storageClassName: default
   #  volumeName: pv-apache-kafka
+  
+  
+  
+  
+  
+  
+  
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
@@ -59,6 +72,7 @@ items:
         metadata:
           labels:
             deploymentconfig: ${NAME}
+            app: apache-kafka3
         spec:
           hostname: ${NAME}
           containers:
@@ -94,9 +108,9 @@ items:
           - name: zookeeper
             emptyDir: {}
           - name: kafka-logs
-            emptyDir: {}
-#            persistentVolumeClaim:
-#              claimName: apache-kafka-storage
+#            emptyDir: {}
+            persistentVolumeClaim:
+              claimName: apache-kafka3
   - apiVersion: v1
     kind: Service
     metadata:
