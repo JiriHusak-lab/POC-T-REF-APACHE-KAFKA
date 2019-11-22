@@ -93,7 +93,7 @@ items:
           volumes:
           - name: kafka-logs
             persistentVolumeClaim:
-            claimName: apache-kafka-storage
+              claimName: apache-kafka-storage
           - name: zookeeper
             emptyDir: {}
   - apiVersion: v1
