@@ -52,29 +52,29 @@ items:
 #      persistentVolumeReclaimPolicy: Retain
 #      storageClassName: default
       
-  ## PERSISTENT VOLUME CLAIMS
-  - apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      annotations:
-        openshift.io/generated-by: OpenShiftNewApp
-      creationTimestamp: null
-      labels:
-        app: apache-kafka
-      name: apache-kafka
-    spec:
-      accessModes:
-        - ReadWriteMany
-      resources:
-        requests:
-          storage: 500M
-      storageClassName: default
+ ## PERSISTENT VOLUME CLAIMS
+ # - apiVersion: v1
+ #  kind: PersistentVolumeClaim
+ #  metadata:
+ #    annotations:
+ #      openshift.io/generated-by: OpenShiftNewApp
+ #    creationTimestamp: null
+ #    labels:
+ #      app: apache-kafka
+ #    name: apache-kafka
+ #  spec:
+ #    accessModes:
+ #      - ReadWriteMany
+ #    resources:
+ #      requests:
+ #        storage: 500M
+ #    storageClassName: default
  #     volumeName: pv-apache-kafka
  #     selector: 
  #       matchLabels:
  #         app: apache-kafka
-    status:
-      phase: Pending
+ #   status:
+ #     phase: Pending
   
 #  - apiVersion: v1
 #    kind: PersistentVolumeClaim
@@ -99,6 +99,9 @@ items:
 #    status:
 #      phase: Pending
 
+
+#jhdsjdhjsd
+#jfdshdjfhjfdhs
 ## DEPLOYMENT CONFIG
     - apiVersion: v1
     kind: DeploymentConfig
