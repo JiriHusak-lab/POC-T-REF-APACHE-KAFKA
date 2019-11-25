@@ -37,6 +37,8 @@ items:
         - ReadWriteMany
       claimRef:
         kind: PersistentVolumeClaim
+      nfs:
+        emptyDir: {}
       persistentVolumeReclaimPolicy: Retain
       storageClassName: default
       
