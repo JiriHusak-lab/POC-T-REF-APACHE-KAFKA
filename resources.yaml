@@ -29,20 +29,23 @@ items:
       name: pv-apache-kafka
       labels: 
         app: apache-kafka
-        StorageType: ENDURANCE
+        #StorageType: ENDURANCE
     spec:
       capacity:
         storage: 500M
       accessModes:
         - ReadWriteMany
+      claimRef:
+        kind: PersistentVolumeClaim
       persistentVolumeReclaimPolicy: Retain
       storageClassName: default
+      
   - apiVersion: v1
     kind: PersistentVolume
     metadata:
       name: pv-apache-zookeeper
       labels: 
-        app: apache-kafka
+        app: apache-zookeeper
         StorageType: ENDURANCE
     spec:
       capacity:
@@ -84,6 +87,7 @@ items:
       creationTimestamp: null
       labels:
         app: apache-kafka
+        StorageType: ENDURANCE
       name: apache-zookeeper
     spec:
       accessModes:
@@ -94,6 +98,7 @@ items:
       selector: 
         matchLabels:
           app: apache-zookeeper
+          StorageType: ENDURANCE
       storageClassName: default
       volumeName: pv-apache-zookeeper
     status:
