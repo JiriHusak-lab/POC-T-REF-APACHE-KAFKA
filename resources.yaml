@@ -21,7 +21,23 @@ items:
     required: true
     value: rondinif/openshift-kafka
   objects:
-  ##
+  ## PERSISTENT VOLUMES
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-apache-kafka
+      labels: 
+        app: apache-kafka
+        StorageType: ENDURANCE
+    spec:
+      capacity:
+        storage: 500MB
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: default
+
+  ## PERSISTENT VOLUME CLAIMS
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
@@ -36,7 +52,7 @@ items:
       - ReadWriteMany
       resources:
         requests:
-          storage: 500M
+          storage: 500MB
       storageClassName: default
  #    volumeName: pv-apache-kafka
     status:
@@ -56,13 +72,14 @@ items:
       - ReadWriteMany
       resources:
         requests:
-          storage: 500M
+          storage: 500MB
       storageClassName: default
 #     volumeName: pv-apache-zookeeper
     status:
       phase: Pending
   
-  - apiVersion: v1
+  ## DEPLOYMENT CONFIG
+    - apiVersion: v1
     kind: DeploymentConfig
     metadata:
       name: ${NAME}
@@ -117,6 +134,8 @@ items:
 #            emptyDir: {}
             persistentVolumeClaim:
               claimName: apache-kafka
+  
+  ## SERVICE
   - apiVersion: v1
     kind: Service
     metadata:
