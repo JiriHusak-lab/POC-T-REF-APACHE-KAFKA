@@ -21,7 +21,8 @@ items:
     required: true
     value: rondinif/openshift-kafka
   objects:
-  ## PERSISTENT VOLUMES
+
+## PERSISTENT VOLUMES
   - apiVersion: v1
     kind: PersistentVolume
     metadata:
@@ -54,7 +55,10 @@ items:
         requests:
           storage: 500MB
       storageClassName: default
- #    volumeName: pv-apache-kafka
+      volumeName: pv-apache-kafka
+    selector: 
+      matchLabels:
+        app: apache-kafka
     status:
       phase: Pending
   
@@ -77,8 +81,8 @@ items:
 #     volumeName: pv-apache-zookeeper
     status:
       phase: Pending
-  
-  ## DEPLOYMENT CONFIG
+
+## DEPLOYMENT CONFIG
     - apiVersion: v1
     kind: DeploymentConfig
     metadata:
