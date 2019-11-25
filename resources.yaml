@@ -59,7 +59,7 @@ items:
 #      persistentVolumeReclaimPolicy: Retain
 #      storageClassName: default
 #     
- ## PERSISTENT VOLUME CLAIMS
+ ## PERSISTENT VOLUME CLAIMS 
   - apiVersion: v1
     kind: PersistentVolumeClaim
     metadata:
