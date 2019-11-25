@@ -67,8 +67,8 @@ items:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        app: apache-kafka
-      name: apache-kafka
+        app: apache-kafka2
+      name: apache-kafka3
     spec:
       accessModes:
         - ReadWriteMany
@@ -78,7 +78,7 @@ items:
       storageClassName: default
       selector: 
         matchLabels:
-          APP: apache-kafka
+          APP: apache-kafka4
     status:
       phase: Pending
   
@@ -89,9 +89,9 @@ items:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        app: apache-kafka
+        app: apache-kafka2
         StorageType: ENDURANCE
-      name: apache-zookeeper
+      name: apache-zookeeper3
     spec:
       accessModes:
         - ReadWriteMany
@@ -100,7 +100,7 @@ items:
           storage: 500M
       selector: 
         matchLabels:
-          APP: apache-zookeeper
+          APP: apache-zookeeper4
           StorageType: ENDURANCE
       storageClassName: default
     status:
@@ -159,11 +159,11 @@ items:
           - name: zookeeper
 #            emptyDir: {}
             persistentVolumeClaim:
-              claimName: apache-zookeeper
+              claimName: apache-zookeeper3
           - name: kafka-logs
 #            emptyDir: {}
             persistentVolumeClaim:
-              claimName: apache-kafka
+              claimName: apache-kafka3
   
   ## SERVICE
   - apiVersion: v1
