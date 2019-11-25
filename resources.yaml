@@ -29,14 +29,12 @@ items:
       name: pv-apache-kafka
       labels: 
         app: apache-kafka
-        #StorageType: ENDURANCE
+        StorageType: ENDURANCE
     spec:
       capacity:
         storage: 500M
       accessModes:
         - ReadWriteMany
-      claimRef:
-        kind: PersistentVolumeClaim
       nfs:
         server: fsf-wdc0401b-fz.service.softlayer.com
         path: /IBM02SEV1956130_54/data01
