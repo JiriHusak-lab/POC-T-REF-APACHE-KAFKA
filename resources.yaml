@@ -70,34 +70,34 @@ items:
           storage: 500M
       storageClassName: default
  #     volumeName: pv-apache-kafka
-      selector: 
-        matchLabels:
-          app: apache-kafka
+ #     selector: 
+ #       matchLabels:
+ #         app: apache-kafka
     status:
       phase: Pending
   
-  - apiVersion: v1
-    kind: PersistentVolumeClaim
-    metadata:
-      annotations:
-        openshift.io/generated-by: OpenShiftNewApp
-      creationTimestamp: null
-      labels:
-        app: apache-kafka
-      name: apache-zookeeper
-    spec:
-      accessModes:
-        - ReadWriteMany
-      resources:
-        requests:
-          storage: 500M
-      selector: 
-        matchLabels:
-          app: apache-zookeeper
-      storageClassName: default
-#      volumeName: pv-apache-zookeeper
-    status:
-      phase: Pending
+#  - apiVersion: v1
+#    kind: PersistentVolumeClaim
+#    metadata:
+#      annotations:
+#        openshift.io/generated-by: OpenShiftNewApp
+#      creationTimestamp: null
+#      labels:
+#        app: apache-kafka
+#      name: apache-zookeeper
+#    spec:
+#      accessModes:
+#        - ReadWriteMany
+#      resources:
+#        requests:
+#          storage: 500M
+#      selector: 
+#        matchLabels:
+#          app: apache-zookeeper
+#      storageClassName: default
+##      volumeName: pv-apache-zookeeper
+#    status:
+#      phase: Pending
 
 ## DEPLOYMENT CONFIG
     - apiVersion: v1
