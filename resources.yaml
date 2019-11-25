@@ -5,17 +5,17 @@ items:
 - apiVersion: v1
   kind: Template
   metadata:
-    name: apache-kafka3
+    name: apache-kafka
     annotations:
       description: 1-pod Apache Kafka
       tags: messaging,streaming,kafka
     labels:
-      app: apache-kafka3
+      app: apache-kafka
   parameters:
   - name: NAME
     description: Name prefix for each object created
     required: true
-    value: apache-kafka3
+    value: apache-kafka
   - name: IMAGE
     description: Image with Apache Kafka and Apache ZooKeeper
     required: true
@@ -29,8 +29,8 @@ items:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        app: apache-kafka3
-      name: apache-kafka3
+        app: apache-kafka
+      name: apache-kafka
     spec:
       accessModes:
       - ReadWriteMany
@@ -38,7 +38,7 @@ items:
         requests:
           storage: 500M
       storageClassName: default
- #    volumeName: pv-apache-kafka3
+ #    volumeName: pv-apache-kafka
     status:
       phase: Pending
   
@@ -49,7 +49,7 @@ items:
         openshift.io/generated-by: OpenShiftNewApp
       creationTimestamp: null
       labels:
-        app: apache-kafka3
+        app: apache-kafka
       name: apache-zookeeper
     spec:
       accessModes:
@@ -67,7 +67,7 @@ items:
     metadata:
       name: ${NAME}
       labels:
-        app: apache-kafka3
+        app: apache-kafka
     spec:
       replicas: 1
       selector:
@@ -76,11 +76,11 @@ items:
         metadata:
           labels:
             deploymentconfig: ${NAME}
-            app: apache-kafka3
+            app: apache-kafka
         spec:
           hostname: ${NAME}
           containers:
-          - name: apache-kafka3
+          - name: apache-kafka
             image: ${IMAGE}
             command:
             - bin/kafka-server-start.sh
@@ -116,12 +116,12 @@ items:
           - name: kafka-logs
 #            emptyDir: {}
             persistentVolumeClaim:
-              claimName: apache-kafka3
+              claimName: apache-kafka
   - apiVersion: v1
     kind: Service
     metadata:
       labels:
-        app: apache-kafka3
+        app: apache-kafka
       name: ${NAME}
     spec:
       ports:
