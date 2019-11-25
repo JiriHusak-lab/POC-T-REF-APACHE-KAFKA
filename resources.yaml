@@ -76,7 +76,7 @@ items:
         requests:
           storage: 500M
       storageClassName: default
-      volumeName: pv-apache-kafka
+      #volumeName: pv-apache-kafka
       selector: 
         matchLabels:
           APP: apache-kafka
@@ -104,7 +104,7 @@ items:
           APP: apache-zookeeper
           StorageType: ENDURANCE
       storageClassName: default
-      volumeName: pv-apache-zookeeper
+      #volumeName: pv-apache-zookeeper
     status:
       phase: Pending
 
