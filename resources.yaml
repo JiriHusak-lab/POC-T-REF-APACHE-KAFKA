@@ -38,7 +38,8 @@ items:
       claimRef:
         kind: PersistentVolumeClaim
       nfs:
-        emptyDir: {}
+        server: fsf-wdc0401b-fz.service.softlayer.com
+        path: /IBM02SEV1956130_54/data01
       persistentVolumeReclaimPolicy: Retain
       storageClassName: default
       
@@ -54,6 +55,9 @@ items:
         storage: 500M
       accessModes:
         - ReadWriteMany
+      nfs:
+        server: fsf-wdc0401b-fz.service.softlayer.com
+        path: /IBM02SEV1956130_54/data01
       persistentVolumeReclaimPolicy: Retain
       storageClassName: default
      
