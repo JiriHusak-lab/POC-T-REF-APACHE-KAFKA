@@ -23,42 +23,42 @@ items:
   objects:
 
 ## PERSISTENT VOLUMES
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: pv-apache-kafka
-      labels: 
-        app: apache-kafka
-        StorageType: ENDURANCE
-    spec:
-      capacity:
-        storage: 500M
-      accessModes:
-        - ReadWriteMany
-      nfs:
-        server: fsf-wdc0401b-fz.service.softlayer.com
-        path: /IBM02SEV1956130_54/data01
-      persistentVolumeReclaimPolicy: Retain
-      storageClassName: default
-      
-  - apiVersion: v1
-    kind: PersistentVolume
-    metadata:
-      name: pv-apache-zookeeper
-      labels: 
-        app: apache-zookeeper
-        StorageType: ENDURANCE
-    spec:
-      capacity:
-        storage: 500M
-      accessModes:
-        - ReadWriteMany
-      nfs:
-        server: fsf-wdc0401b-fz.service.softlayer.com
-        path: /IBM02SEV1956130_54/data01
-      persistentVolumeReclaimPolicy: Retain
-      storageClassName: default
-     
+#  - apiVersion: v1
+#    kind: PersistentVolume
+#    metadata:
+#      name: pv-apache-kafka
+#      labels: 
+#        app: apache-kafka
+#        StorageType: ENDURANCE
+#    spec:
+#      capacity:
+#        storage: 500M
+#      accessModes:
+#        - ReadWriteMany
+#      nfs:
+#        server: fsf-wdc0401b-fz.service.softlayer.com
+#        path: /IBM02SEV1956130_54/data01
+#      persistentVolumeReclaimPolicy: Retain
+#      storageClassName: default
+#      
+#  - apiVersion: v1
+#    kind: PersistentVolume
+#    metadata:
+#      name: pv-apache-zookeeper
+#      labels: 
+#        app: apache-zookeeper
+#        StorageType: ENDURANCE
+#    spec:
+#      capacity:
+#        storage: 500M
+#      accessModes:
+#        - ReadWriteMany
+#      nfs:
+#        server: fsf-wdc0401b-fz.service.softlayer.com
+#        path: /IBM02SEV1956130_54/data01
+#      persistentVolumeReclaimPolicy: Retain
+#      storageClassName: default
+#     
  ## PERSISTENT VOLUME CLAIMS
   - apiVersion: v1
     kind: PersistentVolumeClaim
@@ -79,7 +79,7 @@ items:
       volumeName: pv-apache-kafka
       selector: 
         matchLabels:
-          app: apache-kafka
+          APP: apache-kafka
     status:
       phase: Pending
   
@@ -101,7 +101,7 @@ items:
           storage: 500M
       selector: 
         matchLabels:
-          app: apache-zookeeper
+          APP: apache-zookeeper
           StorageType: ENDURANCE
       storageClassName: default
       volumeName: pv-apache-zookeeper
