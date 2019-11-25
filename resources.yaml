@@ -95,7 +95,7 @@ items:
         matchLabels:
           app: apache-zookeeper
       storageClassName: default
-#      volumeName: pv-apache-zookeeper
+      volumeName: pv-apache-zookeeper
     status:
       phase: Pending
 
