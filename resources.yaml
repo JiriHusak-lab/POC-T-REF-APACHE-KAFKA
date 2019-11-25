@@ -23,20 +23,20 @@ items:
   objects:
 
 ## PERSISTENT VOLUMES
-#  - apiVersion: v1
-#    kind: PersistentVolume
-#    metadata:
-#      name: pv-apache-kafka
-#      labels: 
-#        app: apache-kafka
-#        StorageType: ENDURANCE
-#    spec:
-#      capacity:
-#        storage: 500M
-#      accessModes:
-#        - ReadWriteMany
-#      persistentVolumeReclaimPolicy: Retain
-#      storageClassName: default
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-apache-kafka
+      labels: 
+        app: apache-kafka
+        StorageType: ENDURANCE
+    spec:
+      capacity:
+        storage: 500M
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: default
 #  - apiVersion: v1
 #    kind: PersistentVolume
 #    metadata:
