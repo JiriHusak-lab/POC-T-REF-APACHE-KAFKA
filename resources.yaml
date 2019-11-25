@@ -23,20 +23,20 @@ items:
   objects:
 
 ## PERSISTENT VOLUMES
-#  - apiVersion: v1
-#    kind: PersistentVolume
-#    metadata:
-#      name: pv-apache-kafka
-#      labels: 
-#        app: apache-kafka
-#        StorageType: ENDURANCE
-#    spec:
-#      capacity:
-#        storage: 500MB
-#      accessModes:
-#        - ReadWriteMany
-#      persistentVolumeReclaimPolicy: Retain
-#      storageClassName: default
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-apache-kafka
+      labels: 
+        app: apache-kafka
+        StorageType: ENDURANCE
+    spec:
+      capacity:
+        storage: 500MB
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: default
 #  - apiVersion: v1
 #    kind: PersistentVolume
 #    metadata:
@@ -64,15 +64,15 @@ items:
       name: apache-kafka
     spec:
       accessModes:
-      - ReadWriteMany
+        - ReadWriteMany
       resources:
         requests:
-          storage: 500MB
+          storage: 500M
       storageClassName: default
  #     volumeName: pv-apache-kafka
-    selector: 
-      matchLabels:
-        app: apache-kafka
+      selector: 
+        matchLabels:
+          app: apache-kafka
     status:
       phase: Pending
   
@@ -87,10 +87,13 @@ items:
       name: apache-zookeeper
     spec:
       accessModes:
-      - ReadWriteMany
+        - ReadWriteMany
       resources:
         requests:
-          storage: 500MB
+          storage: 500M
+      selector: 
+        matchLabels:
+          app: apache-zookeeper
       storageClassName: default
 #      volumeName: pv-apache-zookeeper
     status:
