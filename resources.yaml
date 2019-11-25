@@ -23,87 +23,86 @@ items:
   objects:
 
 ## PERSISTENT VOLUMES
-#  - apiVersion: v1
-#    kind: PersistentVolume
-#    metadata:
-#      name: pv-apache-kafka
-#      labels: 
-#        app: apache-kafka
-#        StorageType: ENDURANCE
-#    spec:
-#      capacity:
-#        storage: 500M
-#      accessModes:
-#        - ReadWriteMany
-#      persistentVolumeReclaimPolicy: Retain
-#      storageClassName: default
-#  - apiVersion: v1
-#    kind: PersistentVolume
-#    metadata:
-#      name: pv-apache-zookeeper
-#      labels: 
-#        app: apache-kafka
-#        StorageType: ENDURANCE
-#    spec:
-#      capacity:
-#        storage: 500M
-#      accessModes:
-#        - ReadWriteMany
-#      persistentVolumeReclaimPolicy: Retain
-#      storageClassName: default
-      
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-apache-kafka
+      labels: 
+        app: apache-kafka
+        StorageType: ENDURANCE
+    spec:
+      capacity:
+        storage: 500M
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: default
+  - apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: pv-apache-zookeeper
+      labels: 
+        app: apache-kafka
+        StorageType: ENDURANCE
+    spec:
+      capacity:
+        storage: 500M
+      accessModes:
+        - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      storageClassName: default
+     
  ## PERSISTENT VOLUME CLAIMS
- # - apiVersion: v1
- #  kind: PersistentVolumeClaim
- #  metadata:
- #    annotations:
- #      openshift.io/generated-by: OpenShiftNewApp
- #    creationTimestamp: null
- #    labels:
- #      app: apache-kafka
- #    name: apache-kafka
- #  spec:
- #    accessModes:
- #      - ReadWriteMany
- #    resources:
- #      requests:
- #        storage: 500M
- #    storageClassName: default
- #     volumeName: pv-apache-kafka
- #     selector: 
- #       matchLabels:
- #         app: apache-kafka
- #   status:
- #     phase: Pending
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: apache-kafka
+      name: apache-kafka
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 500M
+      storageClassName: default
+      volumeName: pv-apache-kafka
+      selector: 
+        matchLabels:
+          app: apache-kafka
+    status:
+      phase: Pending
   
-#  - apiVersion: v1
-#    kind: PersistentVolumeClaim
-#    metadata:
-#      annotations:
-#        openshift.io/generated-by: OpenShiftNewApp
-#      creationTimestamp: null
-#      labels:
-#        app: apache-kafka
-#      name: apache-zookeeper
-#    spec:
-#      accessModes:
-#        - ReadWriteMany
-#      resources:
-#        requests:
-#          storage: 500M
-#      selector: 
-#        matchLabels:
-#          app: apache-zookeeper
-#      storageClassName: default
-##      volumeName: pv-apache-zookeeper
-#    status:
-#      phase: Pending
-
+  - apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      annotations:
+        openshift.io/generated-by: OpenShiftNewApp
+      creationTimestamp: null
+      labels:
+        app: apache-kafka
+      name: apache-zookeeper
+    spec:
+      accessModes:
+        - ReadWriteMany
+      resources:
+        requests:
+          storage: 500M
+      selector: 
+        matchLabels:
+          app: apache-zookeeper
+      storageClassName: default
+#      volumeName: pv-apache-zookeeper
+    status:
+      phase: Pending
 
 #jhdsjdhjsd
 #jfdshdjfhjfdhs
 ## DEPLOYMENT CONFIG
-    - apiVersion: v1
+  - apiVersion: v1
     kind: DeploymentConfig
     metadata:
       name: ${NAME}
