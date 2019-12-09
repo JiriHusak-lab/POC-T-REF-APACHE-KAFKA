@@ -58,13 +58,23 @@ items:
               name: kafka-logs
             ports:
             - containerPort: 9092
-            preStop:
+            livenessProbe:
               exec:
                 command:
                   - sh
                   - '-c'
-                  - '/opt/kafka/bin/kafka-server-start.sh'
-                  
+                  - 'echo `date`: LIVENESS >> /app/liveness_result.txt'
+              failureThreshold: 3
+              periodSeconds: 10
+              successThreshold: 1
+              timeoutSeconds: 1
+            lifecycle:
+              preStop:
+                exec:
+                  command:
+                    - sh
+                    - '-c'
+                    - '/opt/kafka/bin/kafka-server-start.sh'
           - name: apache-zookeeper
             image: ${IMAGE}
             command:
@@ -76,12 +86,13 @@ items:
               name: zookeeper
             ports:
             - containerPort: 2181
-            preStop:
-              exec:
-                command:
-                  - sh
-                  - '-c'
-                  - '/opt/kafka/bin/zookeeper-server-start.sh'
+            lifecycle:
+              preStop:
+                exec:
+                  command:
+                    - sh
+                    - '-c'
+                    - '/opt/kafka/bin/zookeeper-server-start.sh'
           volumes:
           - name: zookeeper
             persistentVolumeClaim:
