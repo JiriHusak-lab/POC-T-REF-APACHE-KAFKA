@@ -1,3 +1,5 @@
+#20191209 - Added liveness check script
+
 FROM centos
 RUN mkdir -p /opt/kafka \
   && cd /opt/kafka \
