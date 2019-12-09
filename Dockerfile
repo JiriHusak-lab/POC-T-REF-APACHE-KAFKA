@@ -1,6 +1,7 @@
 #20191209 - Added liveness check script
 
-FROM centos
+#FROM centos
+FROM docker.io/library/centos:7
 RUN mkdir -p /opt/kafka \
   && cd /opt/kafka \
   && yum -y install java-1.8.0-openjdk-headless tar \

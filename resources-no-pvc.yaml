@@ -63,7 +63,7 @@ items:
                 command:
                   - sh
                   - '-c'
-                  - 'echo `date`: LIVENESS >> /app/liveness_result.txt'
+                  - '/opt/kafka/kafka-liveness-chk.sh'
               failureThreshold: 3
               periodSeconds: 10
               successThreshold: 1
@@ -74,7 +74,7 @@ items:
                   command:
                     - sh
                     - '-c'
-                    - '/opt/kafka/bin/kafka-server-start.sh'
+                    - '/opt/kafka/bin/kafka-server-stop.sh'
           - name: apache-zookeeper
             image: ${IMAGE}
             command:
@@ -92,7 +92,7 @@ items:
                   command:
                     - sh
                     - '-c'
-                    - '/opt/kafka/bin/zookeeper-server-start.sh'
+                    - '/opt/kafka/bin/zookeeper-server-stop.sh'
           volumes:
           - name: zookeeper
             persistentVolumeClaim:
