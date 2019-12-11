@@ -1,9 +1,12 @@
+#!/bin/sh
+
+SIGNAL=${SIGNAL:-TERM}
 PIDS=$(ps ax | grep -i 'kafka\.Kafka' | grep java | grep -v grep | awk '{print $1}')
 
 if [ -z "$PIDS" ]; then
-  echo "No kafka server is running"
-  exit -8
+	echo "No kafka server to stop"
+	exit 1
 else
-  echo "Kafka server is running with PID " $PIDS >> /opt/kafka/kafka-liveness-chk.out
-  exit 0
+    echo "kafka server is running"
+	exit 1
 fi
