@@ -1,4 +1,5 @@
 #20191209 - Added liveness check script
+#20191211 - test
 
 #FROM centos
 FROM docker.io/library/centos:7
