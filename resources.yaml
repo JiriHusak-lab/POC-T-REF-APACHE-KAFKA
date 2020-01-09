@@ -76,7 +76,8 @@ items:
       resources:
         requests:
           storage: 500M
-      storageClassName: default
+#      storageClassName: default
+      storageClassName: ibmc-file-bronze
       selector: 
         matchLabels:
           APP: apache-kafka
@@ -103,7 +104,8 @@ items:
         matchLabels:
           APP: apache-zookeeper
           StorageType: ENDURANCE
-      storageClassName: default
+#      storageClassName: default
+      storageClassName: ibmc-file-bronze
     status:
       phase: Pending
 
@@ -157,7 +159,8 @@ items:
           - name: zookeeper
 #            emptyDir: {}
             persistentVolumeClaim:
-              claimName: apache-zookeeper
+#              claimName: apache-zookeeper
+              claimName: apache-kafka
           - name: kafka-logs
 #            emptyDir: {}
             persistentVolumeClaim:
