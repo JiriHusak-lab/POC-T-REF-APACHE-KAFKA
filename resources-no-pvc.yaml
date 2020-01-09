@@ -53,9 +53,9 @@ items:
                 bin/kafka-server-start.sh config/server.properties --override
                 advertised.host.name=apache-kafka --override
                 log.segment.bytes=10485760 --override log.retention.bytes=10485760;
-            volumeMounts:
-            - mountPath: /tmp/kafka-logs
-              name: kafka-logs
+#            volumeMounts:
+#            - mountPath: /tmp/kafka-logs
+#              name: kafka-logs
             ports:
             - containerPort: 9092
             livenessProbe:
@@ -81,9 +81,9 @@ items:
             - bin/zookeeper-server-start.sh
             args:
             - config/zookeeper.properties
-            volumeMounts:
-            - mountPath: /tmp/zookeeper
-              name: zookeeper
+#            volumeMounts:
+#            - mountPath: /tmp/zookeeper
+#              name: zookeeper
             ports:
             - containerPort: 2181
             lifecycle:
