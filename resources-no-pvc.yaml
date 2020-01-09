@@ -93,13 +93,13 @@ items:
                     - sh
                     - '-c'
                     - '/opt/kafka/bin/zookeeper-server-stop.sh'
-          volumes:
-          - name: zookeeper
-            persistentVolumeClaim:
-              claimName: apache-zookeeper
-          - name: kafka-logs
-            persistentVolumeClaim:
-              claimName: apache-kafka
+#          volumes:
+#          - name: zookeeper
+#            persistentVolumeClaim:
+#              claimName: apache-zookeeper
+#         - name: kafka-logs
+#            persistentVolumeClaim:
+#              claimName: apache-kafka
   
   ## SERVICE
   - apiVersion: v1
