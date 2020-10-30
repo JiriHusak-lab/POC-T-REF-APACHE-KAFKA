@@ -68,13 +68,13 @@ items:
 #              periodSeconds: 10
 #              successThreshold: 1
 #              timeoutSeconds: 1
-#            lifecycle:
-#              preStop:
-#                exec:
-#                  command:
-#                    - sh
-#                    - '-c'
-#                    - '/opt/kafka/bin/kafka-server-stop.sh'
+            lifecycle:
+              preStop:
+                exec:
+                  command:
+                    - sh
+                    - '-c'
+                    - '/opt/kafka/bin/kafka-server-stop.sh'
           - name: apache-zookeeper
             image: ${IMAGE}
             command:
