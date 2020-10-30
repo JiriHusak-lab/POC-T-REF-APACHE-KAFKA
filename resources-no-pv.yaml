@@ -5,7 +5,7 @@ items:
 - apiVersion: v1
   kind: Template
   metadata:
-    name: apache-kafka
+    name: apache-kafka-pv
     annotations:
       description: 1-pod Apache Kafka
       tags: messaging,streaming,kafka
