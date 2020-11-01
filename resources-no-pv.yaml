@@ -96,7 +96,7 @@ items:
           volumes:
           - name: zookeeper
             persistentVolumeClaim:
-              claimName: apache-zookeeper
+              claimName: zookeeper
           - name: kafka-logs
             persistentVolumeClaim:
               claimName: apache-kafka
