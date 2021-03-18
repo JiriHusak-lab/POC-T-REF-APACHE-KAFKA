@@ -6,7 +6,8 @@ FROM docker.io/library/centos:7
 RUN mkdir -p /opt/kafka \
   && cd /opt/kafka \
   && yum -y install java-1.8.0-openjdk-headless tar \
-  && curl -s https://www.mirrorservice.org/sites/ftp.apache.org/kafka/2.3.0/kafka_2.12-2.3.0.tgz  | tar -xz --strip-components=1 \
+  #&& curl -s https://www.mirrorservice.org/sites/ftp.apache.org/kafka/2.3.0/kafka_2.12-2.3.0.tgz  | tar -xz --strip-components=1 \
+  && curl -s https://archive.apache.org/dist/kafka/2.3.0/kafka_2.12-2.3.0.tgz  | tar -xz --strip-components=1 \
   && yum clean all
   
 #COPY kafka-liveness-chk.sh /opt/kafka/kafka-liveness-chk.sh
